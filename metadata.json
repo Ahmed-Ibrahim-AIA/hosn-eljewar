@@ -1,0 +1,6 @@
+{
+  "name": "إدارة العمارة والمصروفات السكنية",
+  "description": "تطبيق متكامل لتسجيل النقود والمصروفات ومتابعة شقق وسكان العمارة، وإصدار إيصالات القبض والتقارير المالية الشهرية الاحترافية بعدة صيغ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

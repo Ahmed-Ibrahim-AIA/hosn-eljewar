@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Cairo', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cairo', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.font-mono {
+  font-family: 'Cairo', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Display Mode Switcher: Mobile Version (.app-display-mobile) vs Desktop Version (.app-display-desktop)
+   ========================================================================== */
+
+/* When Mobile Version is active on wide screens, present a sleek centered mobile viewport frame */
+.app-display-mobile {
+  max-width: 440px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f8fafc;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.45), 0 0 0 1px rgba(148, 163, 184, 0.3);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 4.5rem;
+}
+
+/* Force responsive flex-row containers inside Mobile Version to stack vertically like a native phone screen */
+.app-display-mobile .sm\:flex-row,
+.app-display-mobile .md\:flex-row,
+.app-display-mobile .lg\:flex-row {
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+/* Force multi-column desktop grids inside Mobile Version to stack cleanly for mobile readability */
+.app-display-mobile main .grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* Allow explicit 2-column compact KPI grids inside mobile mode if marked with .mobile-grid-2 */
+.app-display-mobile main .mobile-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+/* Keep the 5-item mobile bottom navigation bar as a 5-column bar */
+.app-display-mobile .mobile-bottom-nav-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+/* Make tables horizontally scrollable and compact inside Mobile Version */
+.app-display-mobile main table {
+  font-size: 0.75rem;
+}
+
+.app-display-mobile main th,
+.app-display-mobile main td {
+  padding: 0.5rem 0.625rem !important;
+}
+
+/* Desktop Version on smaller screens allows horizontal scroll if needed to preserve desktop dashboard layout */
+.app-display-desktop {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Theme & Color Studio Rules ([data-app-theme])
+   ========================================================================== */
+[data-app-theme] {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-app-theme="royal_blue"] {
+  background-color: #f0f7ff !important;
+}
+[data-app-theme="indigo_violet"] {
+  background-color: #f5f3ff !important;
+}
+[data-app-theme="amber_gold"] {
+  background-color: #fffbeb !important;
+}
+[data-app-theme="rose_crimson"] {
+  background-color: #fff1f2 !important;
+}
+[data-app-theme="dark_slate"] {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
+[data-app-theme="dark_slate"] main .bg-white {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+[data-app-theme="dark_slate"] main .text-slate-900,
+[data-app-theme="dark_slate"] main .text-slate-800 {
+  color: #f8fafc !important;
+}
+[data-app-theme="dark_slate"] main .text-slate-600,
+[data-app-theme="dark_slate"] main .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+
